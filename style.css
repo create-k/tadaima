@@ -1,13 +1,14 @@
 @charset "utf-8";
 
 body {
-    background-color: #EB7A77;
-
+  background-image: url("images/room.png");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
 }
 
-header {
-  height: 50px;
-}
+header {}
 
 .main-menu {
   height: 0;
@@ -19,6 +20,7 @@ header {
   background-color: #FFF;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   transition: height .5s;
+   z-index: 3;
 }
 
 #navBtn:checked~.main-menu {
@@ -107,31 +109,45 @@ label {
   background: #ff8c00;
 }
 
-.btn-container {
-  display: flex;                /* 横並びにする */
-  justify-content: center;      /* 中央に寄せる */
-  gap: 30px;                    /* ボタン同士の間隔を30pxあける */
-  align-items: center;
-}
 
-.image_btn {
-  display: inline-block;
-  width: 350px; /* ボタンの横幅 */
-  text-align: center;
-  text-decoration: none;
-  box-shadow: 0px 5px 0px #000;
-  transition: .3s;
-}
-
-/* 画像がボタン枠いっぱいに収まるようにする */
-.image_btn img {
+/* 1. 全体を包む大元の箱を「基準の場所」にする */
+main {
+  position: relative;
+  /* 子要素の位置合わせの基準になります */
   width: 100%;
-  height: auto;
-  display: block;
+  height: 100vh;
+  /* 画面全体の高さに設定（必要に応じて調整） */
+  overflow: hidden;
 }
 
-/* ホバーしたときに少し浮き沈みや透過のエフェクトを入れる場合 */
-.image_btn:hover {
-   box-shadow: unset;
-  transform: translateY(4px);
+/* 2. すべての画像パーツを「自由に重ねられる状態」にする */
+main div {
+  position: absolute;
+  /* 重ね合わせの基本設定 */
+  top: 50%;   /* 画面の縦の中央 */
+  left: 50%;  /* 画面の横の中央 */
+  /* 要素自体の中心を基準点にする ＋ 中央からのズレ（px）をここで調整できます */
+  transform: translate(-50%, -50%);
+
+}
+
+main img {
+  width: 100%;
+  /* 親divの幅に合わせる */
+  height: auto;
+}
+
+
+.grandma {
+  width: 300px;
+  /* おばあちゃんの大きさ */
+  z-index: 1;
+  transform: translate(calc(-50% + 5%), calc(-50% - 20%));
+}
+
+.table {
+  width: 1920px;
+  z-index: 2;
+  /* 奥 */
+  transform: translate(calc(-50% ), calc(-50% - 5%));
 }
