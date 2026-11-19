@@ -1,0 +1,40 @@
+@charset "utf-8";
+
+/* 1. ページ全体の見た目を決める */
+body {
+    background-color: #fff9e6; /* やさしいクリーム色の背景にする */
+    font-family: sans-serif;   /* 読みやすい一般的なフォントにする */
+    text-align: center;        /* 文字やボタンをすべて真ん中寄せにする */
+    padding: 20px;             /* 周りに少し余白をあける */
+    margin: 0;
+}
+
+/* 2. 見出し（h2）の色を変える */
+h2 { 
+    color: #333;               /* 文字色を濃いグレーにして引き締める */
+}
+
+/* 3. スコアの数字の部分のデザイン */
+#score { 
+    font-size: 24px;           /* 文字を大きめにする */
+    font-weight: bold;         /* 太字にする */
+    color: #ff6f61;            /* 目立つようにオレンジがかった赤色にする */
+}
+
+/* 4. 「お手伝いする！」ボタンのデザイン */
+.action-btn {
+    padding: 10px 20px;        /* ボタンの内側の余白（ボタンをふっくらさせる） */
+    font-size: 16px;           /* 文字の大きさ */
+    background-color: #ff8c00; /* オレンジ色の背景にする */
+    color: white;              /* 文字の色を白にする */
+    border: none;              /* 枠線をなくす */
+    border-radius: 8px;        /* 角を丸くして優しく見せる */
+    cursor: pointer;           /* マウスを合わせたときに「指マーク」に変える */
+    margin-top: 15px;          /* 上の文字との間隔をあける */
+    transition: 0.1s;          /* 押したときの変化をなめらかにする */
+}
+
+/* 5. ボタンが「ポチッと押された瞬間」の動き */
+.action-btn:active { 
+    transform: scale(0.95);    /* ほんの少しだけ縮ませて、押した感触（立体感）を出す */
+}
